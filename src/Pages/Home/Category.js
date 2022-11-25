@@ -6,9 +6,9 @@ const Category = () => {
         <div className='text-center'>
             <div>
                 <ul className="menu  items-center menu-horizontal bg-[#533483] ">
-                    <li><Link>Item 1</Link></li>
-                    <li><Link>Item 2</Link></li>
-                    <li><Link>Item 3</Link></li>
+                    <li><Link>IPhone</Link></li>
+                    <li><Link>Samsung</Link></li>
+                    <li><Link>Vivo</Link></li>
                 </ul>
             </div>
        </div>
