@@ -56,9 +56,24 @@ const Blog = () => {
                 </div>
             </div>
             <div className="card  bg-base-100 shadow-lg mb-5">
-                <div className="card-body">
+                <div className="card-body ">
                     <h2 className="card-title text-black">React vs. Angular vs Vue?</h2>
-                    <p className='text-black'>If a dog chews shoes whose shoes does he choose?</p>
+                    <div className='grid md:grid-cols-2 lg:grid-cols-2 gap-2 p-2'>
+                        <div>
+                            <p className='text-black font-semibold'>Angular Js</p>
+                            <p className='text-black'>AngularJS was developed in 2009 by Google. The first version was Angular.JS. Angular is currently known as a JavaScript framework. Obviously, all significant Google projects have been developed with Angular.
+
+                                Angular.js is an MVC framework. A major disadvantage of Angular is that it uses a regular DOM, and thus, the entire tree structure of the HTML tags is updated, which massively impacts the loading time. Angular.js has its Ionic framework for mobile applications</p>
+                        </div>
+                        <div>
+                            <p className='text-black font-semibold'>Vue Js</p>
+                            <p className='text-black'>Vue.js is a JavaScript-based progressive framework for creating single-page applications. It was created with scalability and incrementality in mind, as well as ease of integration with other view layer frameworks.
+
+                                Vue is built from the bottom up to be progressively adaptable, unlike other monolithic frameworks. The core library focuses solely on the view layer, and it’s simple to use and connect with other libraries or applications. This framework’s fast learning angle is almost a trademark. It’s a flexible framework that may be used as a library or a full-fledged framework for developing large web applications.
+
+                                Vue.js combines the useful principles of the Angular and React frameworks and presents them in a minimalistic modern style. Web developers use Vue.js to create frontend user interfaces for web-based and hybrid mobile applications.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
