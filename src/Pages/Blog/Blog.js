@@ -18,7 +18,22 @@ const Blog = () => {
 
                         It can take accept any valid data value, including primitive and object values. Additionally, its setter function can be passed down to other components as a callback function (without needing optimizations like useCallback).</p>
                     <p className='text-black font-semibold'>Manage Global State in React: </p>
+                    <p className='text-black'>Once you attempt to manage state across multiple components, things get a bit trickier.
+
+                        You will reach a point in your application where patterns like “lifting state up” and passing callbacks down to update your state from components lead to lots and lots of props.
+
+                        What do you do if you want to update a component’s state from basically anywhere in your app? You turn it into global state.
+
+                        To manage it, however, you should opt for a third-party solution. Many developers are inclined to use built-in React features like the Context API to manage their state.
+
+                        To be clear: the Context API is not a state management solution. It is a way to avoid problems like props drilling (creating a bunch of props in components that don’t need it), but it is only helpful for reading state, not updating it.
+                        The reason to not use Context for global state management lies in the way it works. The default behavior for Context is to re-render all children components if the value provided to it as a prop changes.</p>
                     <p className='text-black font-semibold'>Manage Server State in React </p>
+                    <p className='text-black'> At first, it seems you just need to fetch data and display it in the page. But then you need to display a loading spinner while you are waiting for the data. Then you need to handle errors and display them to the user as they arise.
+
+                        What happens when there is a network error? Do I really need to hit my server every time my user visits the home page if the data hasn’t changed? Do I need to add useState and useEffect in every component I want to fetch my data?
+
+                        To fix this, there are a couple of great libraries that make data fetching in React a breeze: SWR and React Query.</p>
                     <p className='text-black font-semibold'>Manage URL State in React </p>
                     <p className='text-black'>To end a difficult topic on a positive note, URL state is largely already managed for you if you are using a framework like Next.js or the current version of React Router.
 
@@ -31,13 +46,13 @@ const Blog = () => {
             <div className="card  bg-base-100 shadow-lg mb-5">
                 <div className="card-body">
                     <h2 className="card-title text-black">How does prototypical inheritance work?</h2>
-                    <p className='text-black'>If a dog chews shoes whose shoes does he choose?</p>
+                    <p className='text-black'>The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object. getPrototypeOf and Object.</p>
                 </div>
             </div>
             <div className="card  bg-base-100 shadow-lg mb-5 ">
                 <div className="card-body">
                     <h2 className="card-title text-black">What is a unit test? Why should we write unit test?</h2>
-                    <p className='text-black'>If a dog chews shoes whose shoes does he choose?</p>
+                    <p className='text-black'>The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.</p>
                 </div>
             </div>
             <div className="card  bg-base-100 shadow-lg mb-5">
