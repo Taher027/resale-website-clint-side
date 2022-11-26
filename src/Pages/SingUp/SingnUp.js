@@ -9,13 +9,11 @@ const SignUp = () => {
     const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('')
     const handleSignUp = (data) => {
-        console.log(data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                toast('User Created Successfully.')
+                toast('Successfully Created User.')
                 const userInfo = {
                     displayName: data.name
                 }
@@ -24,7 +22,6 @@ const SignUp = () => {
                     .catch(err => console.log(err));
             })
             .catch(error => {
-                console.log(error)
                 setSignUPError(error.message)
             });
     }
@@ -62,7 +59,7 @@ const SignUp = () => {
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full bg-[#533483]'>CONTINUE WITH GOOGLE</button>
+                <button className='btn btn-outline w-full bg-[#533483] text-white'>CONTINUE WITH GOOGLE</button>
 
             </div>
         </div>

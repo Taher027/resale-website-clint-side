@@ -18,11 +18,9 @@ const Login = () => {
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error.message)
                 setLoginError(error.message);
             });
     }
@@ -59,7 +57,7 @@ const Login = () => {
                 </form>
                 <p>New to Doctors Portal <Link className='text-secondary' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn bg-[#533483] w-full'>CONTINUE WITH GOOGLE</button>
+                <button className='btn btn-outline bg-[#533483] w-full text-white'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );
