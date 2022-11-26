@@ -26,6 +26,7 @@ const Header = () => {
             </div>
             <div className="navbar-end text-white">
                 <Link to={'/login'} className="btn bg-[#533483]">LogIn</Link>
+                <Link to={'/signup'} className="btn bg-[#533483]">SignUP</Link>
                 <Link to={'/login'} className="btn bg-[#533483]">LogOut</Link>
             </div>
         </div>
