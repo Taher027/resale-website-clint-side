@@ -5,9 +5,10 @@ import Category from './Category';
 const Home = () => {
     return (
         <div>
-            <Category></Category>
+
             <Banner></Banner>
-            
+            <Category></Category>
+
         </div>
     );
 };

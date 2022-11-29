@@ -8,8 +8,8 @@ const Banner = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">WELCOME TO BUY & SELL</h1>
-                        <p className="mb-5">FOr selling or buying any secondhand phone, You are welcome to this site. Hope you will find your best one. </p>
+                        <h1 className="mb-5 text-5xl font-bold">WELCOME TO BD BUY & SELL</h1>
+                        <p className="mb-5">For selling or buying any secondhand phone, You are welcome BD BUY & SELL. Hope you will find your best one. </p>
                         
                     </div>
                 </div>

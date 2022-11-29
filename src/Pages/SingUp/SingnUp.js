@@ -1,69 +1,114 @@
-import React, { useContext, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Context/AuthProvider';
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext, } from "../../Context/AuthProvider";
 
-const SignUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+
+const Register = () => {
     const { createUser, updateUser } = useContext(AuthContext);
-    const [signUpError, setSignUPError] = useState('')
-    const handleSignUp = (data) => {
-        setSignUPError('');
-        createUser(data.email, data.password)
-            .then(result => {
-                const user = result.user;
-                toast('Successfully Created User.')
-                const userInfo = {
-                    displayName: data.name
-                }
-                updateUser(userInfo)
-                    .then(() => { })
-                    .catch(err => console.log(err));
-            })
-            .catch(error => {
-                setSignUPError(error.message)
-            });
+    const [isSeller, setIsSeller] = useState(false);
+    const navigate = useNavigate();
+
+    const handleRole = () => {
+        setIsSeller(!isSeller)
     }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const name = event.target.name.value;
+        const photoUrl = event.target.photoUrl.value;
+        const role = isSeller;
+        // console.log(role)
+        const userdb = {
+            email: email,
+            password: password,
+            name: name,
+            photoUrl: photoUrl,
+            role: `${isSeller ? 'seller' : 'buyer'}`,
+            verify: false
+        }
+        createUser(email, password)
+            .then((userCredential) => {
+                updateUser(name, photoUrl);
+
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(userdb)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        navigate("/")
+                    });
+                
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    };
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
-            <div className='w-96 p-7'>
-                <h2 className='text-xl text-center'>Sign Up</h2>
-                <form onSubmit={handleSubmit(handleSignUp)}>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text text-white">Name</span></label>
-                        <input type="text" {...register("name", {
-                            required: "Name is Required"
-                        })} className="input input-bordered w-full max-w-xs text-black" />
-                        {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text text-white">Email</span></label>
-                        <input type="email" {...register("email", {
-                            required: true
-                        })} className="input input-bordered w-full max-w-xs text-black" />
-                        {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
-                    </div>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text text-white">Password</span></label>
-                        <input type="password" {...register("password", {
-                            required: "Password is required",
-                            minLength: { value: 6, message: "Password must be 6 characters long" },
-                            pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters' }
-                        })} className="input input-bordered w-full max-w-xs text-black" />
-                        {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
-                    </div>
-                    <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
-                    {signUpError && <p className='text-red-600'>{signUpError}</p>}
-                </form>
-                <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
-                <div className="divider">OR</div>
-                <button className='btn btn-outline w-full bg-[#533483] text-white'>CONTINUE WITH GOOGLE</button>
 
-            </div>
+        <div className="text-center mt-4 w-2/3 mx-auto">
+            <form className="flex items-center flex-col" onSubmit={handleSubmit}>
+
+                <div className=" flex items-center">
+                    <input
+                        type="email"
+                        name="email"
+                        className="form-control w-full py-2 px-6 rounded mb-3 text-black"
+                        id="floatingInput"
+                        placeholder="name@example.com"
+                        required
+                    />
+                </div>
+                <div className="my-2 ">
+                    <input
+                        type="text"
+                        name="name"
+                        className="form-control w-full py-2 px-6 rounded mb-3 text-black"
+                        id="floatingInput"
+                        placeholder="Name"
+                        required
+                    />
+                </div>
+                <div className="my-2">
+                    <input
+                        type="url"
+                        name="photoUrl"
+                        className="form-control w-full py-2 px-6 rounded mb-3 text-black"
+                        id="floatingInput"
+                        placeholder="Enter photo url"
+                        required
+                    />
+                </div>
+                <div className=" my-2">
+                    <input
+                        type="password"
+                        name="password"
+                        className="form-control w-full py-2 px-6 rounded mb-3 text-black"
+                        id="floatingPassword"
+                        placeholder="Password"
+                        required
+                    />
+                </div>
+
+                <div className="d-flex ">
+                    <input className="form-check-input " type="checkbox" id="flexCheckDefault" onClick={handleRole} />
+                    <label className="form-check-label " htmlFor="flexCheckDefault">
+                        Seller
+                    </label>
+                </div>
+                <button className="w-1/2 btn  bg-[#533483] mb-5 mt-3" type="submit">
+                    Register
+                </button>
+            </form>
         </div>
     );
 };
 
-export default SignUp;
+export default Register;

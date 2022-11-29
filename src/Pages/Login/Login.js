@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
@@ -16,6 +16,7 @@ const Login = () => {
         loginWithGoogle()
             .then(res => {
                 const user = res.user;
+                navigate('/')
             })
             .catch(error => console.error(error))
     }
