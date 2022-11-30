@@ -16,7 +16,26 @@ const Login = () => {
         loginWithGoogle()
             .then(res => {
                 const user = res.user;
-                navigate('/')
+                const userdb = {
+                    email: user.email,
+                    name: user.displayName,
+                    photoUrl: user.photoURL,
+                    role: `buyer`,
+                    verify:false
+                }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        "content-type":"application/json",
+                    },
+                    body:JSON.stringify(userdb),
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                         navigate('/')
+                })
+               
             })
             .catch(error => console.error(error))
     }
