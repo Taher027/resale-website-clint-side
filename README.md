@@ -4,7 +4,10 @@
 * if an user want to post their product they have to login as seller first. other they are consider as a buyer.
 * IN this site admin can approve seller product
 * user can report an product.
+* live site Link: https://bd-buy-and-sell-754c8.web.app/
 
+* admin email: test.admin@gmail.com
+* admin pass: 123456
 
 
 
