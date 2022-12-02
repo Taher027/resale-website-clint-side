@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Advertisement = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/advertiseItems`)
+        fetch(`https://server-zeta-three.vercel.app/advertiseItems`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data);

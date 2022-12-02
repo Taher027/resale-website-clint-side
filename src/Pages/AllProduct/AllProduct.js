@@ -9,7 +9,7 @@ const AllProduct = () => {
     const [product, setProduct] = useState([]);
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${location.pathname.split("/")[2]}`)
+        fetch(`https://server-zeta-three.vercel.app/category/${location.pathname.split("/")[2]}`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -18,7 +18,7 @@ const AllProduct = () => {
 //    console.log(data)
    
     const handlereport = (productInfo) => {
-        fetch("http://localhost:5000/report", {
+        fetch("https://server-zeta-three.vercel.app/report", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

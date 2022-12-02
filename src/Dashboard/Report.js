@@ -6,7 +6,7 @@ const Report = () => {
     const [refresh, setRefresh] = useState(false);
     const notify = () => toast("Delete success");
     useEffect(() => {
-        fetch(`http://localhost:5000/report`)
+        fetch(`https://server-zeta-three.vercel.app/report`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -14,7 +14,7 @@ const Report = () => {
     }, [refresh]);
 
     const handledelete = (product) => {
-        fetch(`http://localhost:5000/deleteProduct/${product._id}`, {
+        fetch(`https://server-zeta-three.vercel.app/deleteProduct/${product._id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json",

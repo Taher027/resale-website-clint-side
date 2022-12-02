@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ShowProducts = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://server-zeta-three.vercel.app/category')
             .then(res => res.json())
         .then(data => setData(data))
     })

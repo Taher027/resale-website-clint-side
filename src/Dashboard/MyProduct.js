@@ -9,7 +9,7 @@ const MyProduct = () => {
        console.log(data)
     const notify = (value) => toast(value);
     useEffect(() => {
-        fetch(`http://localhost:5000/dashboard/my_products/${user.email}`)
+        fetch(`https://server-zeta-three.vercel.app/dashboard/my_products/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setData(data);
@@ -17,7 +17,7 @@ const MyProduct = () => {
     }, [user, refresh]);
 
     const handleAdvertise = (product) => {
-        fetch('http://localhost:5000/advertise_product/', {
+        fetch('https://server-zeta-three.vercel.app/advertise_product/', {
             method: 'POST',
             headers: {
                 "content-type": "application/json",
@@ -32,7 +32,7 @@ const MyProduct = () => {
 
     const handleDelete = (product) => {
         // console.log(item);
-        fetch(`http://localhost:5000/delete/${product._id}`, {
+        fetch(`https://server-zeta-three.vercel.app/delete/${product._id}`, {
             method: 'DELETE',
             headers: {
                 "content-type": "application/json",

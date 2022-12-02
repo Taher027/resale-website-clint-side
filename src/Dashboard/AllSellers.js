@@ -5,7 +5,7 @@ const AllSellers = () => {
     const [data, setData] = useState([]);
     const notify = (value) => toast(value);
     useEffect(() => {
-        fetch(`http://localhost:5000/dashboard/users`)
+        fetch(`https://server-zeta-three.vercel.app/dashboard/users`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

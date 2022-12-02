@@ -7,7 +7,7 @@ const MyOrder = () => {
     const { user } = useContext(AuthContext)
     const notify = (value) => toast(value);
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${user.email}`)
+        fetch(`https://server-zeta-three.vercel.app/myOrders/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
