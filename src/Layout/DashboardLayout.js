@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 import Header from '../Shared/Header';
 
 const DashboardLayout = () => {
+    const { role } = useContext(AuthContext);
     return (
         <div>
             <Header></Header>
@@ -15,16 +17,30 @@ const DashboardLayout = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-60  ">
                         {/* <!-- Sidebar content here --> */}
-                        <Link to='/dashboard/addproduct'> Add Product</Link>
-                        <Link to='/dashboard/allsellers'>All sellers</Link>
-                        <Link to='/dashboard/allbuyers'>All Buyers</Link>
-                        <Link to='/dashboard/my_products'>My Products</Link>
+                        {    
+                            role === 'admin' ? <>
+                                <Link to='/dashboard/allsellers'>All sellers</Link>
+
+                                <Link to='/dashboard/allbuyers'>All Buyers</Link>
+
+                                <Link to='/dashboard/report_items'>Report items</Link>
+                            </> : undefined
+                        }
+
+                        {
+                            role === 'seller' ? <>
+                                <Link to='/dashboard/addproduct'>Add Product</Link>
+
+                                <Link to='/dashboard/my_products'>My Products</Link>
+                            </> : undefined
+                        }
+
+                        {
+                            role === 'buyer' ? <>
+                                <Link to='/dashboard/my_order'>My order</Link>
+                            </> : undefined
+                        }
                     </ul>
-
-                    
-
-                    
-
                 </div>
             </div>
         </div>

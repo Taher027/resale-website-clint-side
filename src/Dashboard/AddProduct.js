@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider'
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
-   
+    console.log(user)
     const notify = () => toast("product added!");
     const navigate = useNavigate();
     const handleForm = (event) => {

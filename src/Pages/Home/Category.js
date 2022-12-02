@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Category = () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/advertiseItems')
+            .then(res => res.json())
+            .then(data => setData(data))
+    })
     return (
         <div className='text-center pt-4'>
+            {
+                console.log(data)
+
+                
+            }
             <div>
                 <ul className="menu  items-center menu-horizontal bg-[#533483] ">
                     <li><Link>IPhone</Link></li>

@@ -1,3 +1,14 @@
+* I created used product resale website for selling mobile phonej.
+* I have use react js , mongodb , react route etc for create this site. 
+* user can booking o their choise product and also post their product as a seller.
+* if an user want to post their product they have to login as seller first. other they are consider as a buyer.
+* IN this site admin can approve seller product
+* user can report an product.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

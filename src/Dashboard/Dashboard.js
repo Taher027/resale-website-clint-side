@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Context/AuthProvider';
+import AddProduct from './AddProduct';
+import AllSellers from './AllSellers';
+import MyOrder from './MyOrder';
 
 const Dashboard = () => {
+    const { role } = useContext(AuthContext);
     return (
         <div>
-           <h2 className='text-4xl'>text for test</h2> 
+        {
+            role === 'seller' ? <AddProduct></AddProduct> : undefined    
+            }
+            {
+                role === 'buyer' ? <MyOrder></MyOrder> : undefined
+            }
+            {
+                role === 'admin' ? <AllSellers></AllSellers> : undefined
+            }
         </div>
     );
 };

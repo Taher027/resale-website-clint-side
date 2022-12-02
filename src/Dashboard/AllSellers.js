@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AllSellers = () => {
+    const [data, setData] = useState([]);
+    const notify = (value) => toast(value);
+    useEffect(() => {
+        fetch(`http://localhost:5000/dashboard/users`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            });
+    }, []);
+  
     return (
         <div className='bg-[]'>
             <div className="overflow-x-auto w-3/4">
