@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             console.log(currentUser)
 
-                fetch(`http://localhost:5000/user/${currentUser.email}`)
+            fetch(`https://server-zeta-three.vercel.app/user/${currentUser.email}`)
                     .then((res) => res.json())
                     .then((data) => {
                         setRole(data.role);
