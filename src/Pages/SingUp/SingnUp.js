@@ -31,7 +31,7 @@ const Register = () => {
             .then((userCredential) => {
                 updateUser(name, photoUrl);
 
-                fetch('http://localhost:5000/users', {
+                fetch('http://localhost:5000/user', {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -43,7 +43,7 @@ const Register = () => {
                         console.log(data)
                         navigate("/")
                     });
-                
+
             })
             .catch((error) => {
                 const errorMessage = error.message;

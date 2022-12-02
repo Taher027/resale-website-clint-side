@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Category = () => {
     return (
-        <div className='text-center'>
+        <div className='text-center pt-4'>
             <div>
                 <ul className="menu  items-center menu-horizontal bg-[#533483] ">
                     <li><Link>IPhone</Link></li>

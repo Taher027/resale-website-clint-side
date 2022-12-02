@@ -23,7 +23,7 @@ const Login = () => {
                     role: `buyer`,
                     verify:false
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('http://localhost:5000/user', {
                     method: 'POST',
                     headers: {
                         "content-type":"application/json",
