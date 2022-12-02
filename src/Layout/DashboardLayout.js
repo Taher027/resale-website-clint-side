@@ -18,6 +18,7 @@ const DashboardLayout = () => {
                         <Link to='/dashboard/addproduct'> Add Product</Link>
                         <Link to='/dashboard/allsellers'>All sellers</Link>
                         <Link to='/dashboard/allbuyers'>All Buyers</Link>
+                        <Link to='/dashboard/my_products'>My Products</Link>
                     </ul>
 
                     
