@@ -23,7 +23,7 @@ const Login = () => {
                     role: `buyer`,
                     verify:false
                 }
-                fetch('http://localhost:5000/user', {
+                fetch('https://bd-buy-and-sell-754c8.web.app/user', {
                     method: 'POST',
                     headers: {
                         "content-type":"application/json",
